@@ -1,0 +1,17 @@
+<Project>
+  <PropertyGroup>
+    <SunfleckFleckCompiler Condition="'$(SunfleckFleckCompiler)' == '' and $([MSBuild]::IsOSPlatform('Windows'))">$(SunfleckSdkRoot)/bin/fleckc.exe</SunfleckFleckCompiler>
+    <SunfleckFleckCompiler Condition="'$(SunfleckFleckCompiler)' == ''">$(SunfleckSdkRoot)/bin/fleckc</SunfleckFleckCompiler>
+  </PropertyGroup>
+  <Target Name="CompileFleckPage" BeforeTargets="AssignTargetPaths" DependsOnTargets="CheckSunfleckSdk">
+    <Error Condition="!Exists('$(SunfleckFleckCompiler)')" Text="Could not locate fleckc in the desktop SDK." />
+    <MakeDir Directories="$(IntermediateOutputPath)" />
+    <Exec Command="&quot;$(SunfleckFleckCompiler)&quot; --format binary --source-map &quot;$(IntermediateOutputPath)$(FleckPage).fleckmap&quot; &quot;$(FleckPage).fleck&quot; &quot;$(IntermediateOutputPath)$(FleckPage).flkb&quot;" />
+    <ItemGroup>
+      <None Include="$(IntermediateOutputPath)$(FleckPage).flkb" Link="$(FleckPage).flkb"
+            CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+      <None Include="$(IntermediateOutputPath)$(FleckPage).fleckmap" Link="$(FleckPage).fleckmap"
+            CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    </ItemGroup>
+  </Target>
+</Project>

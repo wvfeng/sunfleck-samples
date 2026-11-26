@@ -1,0 +1,10 @@
+foreach(variant IN ITEMS code fleck)
+  execute_process(COMMAND "${dotnet}" "${${variant}}" --snapshot "${variant}.rgba"
+    COMMAND_ERROR_IS_FATAL ANY)
+endforeach()
+file(SHA256 code.rgba code_hash)
+file(SHA256 fleck.rgba fleck_hash)
+file(REMOVE code.rgba fleck.rgba)
+if(NOT code_hash STREQUAL fleck_hash)
+  message(FATAL_ERROR "The six C# showcase pages differ between code and Fleck.")
+endif()

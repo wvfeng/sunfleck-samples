@@ -1,0 +1,39 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "vs2026-debug",
+      "generator": "Visual Studio 18 2026",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/out/${presetName}",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      },
+      "cacheVariables": {
+        "Sunfleck_DIR": {
+          "value": "${sourceDir}/../sdk/local/windows-x64-debug/lib/cmake/Sunfleck",
+          "type": "PATH"
+        }
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "vs2026-debug",
+      "configurePreset": "vs2026-debug",
+      "configuration": "Debug"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "vs2026-debug",
+      "configurePreset": "vs2026-debug",
+      "configuration": "Debug",
+      "output": {
+        "outputOnFailure": true
+      }
+    }
+  ]
+}

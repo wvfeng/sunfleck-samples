@@ -1,0 +1,25 @@
+# Build trees and locally retained validation evidence
+/out/
+/.build-support/
+
+# .NET outputs, including nested examples and diagnostic fixtures
+**/bin/
+**/obj/
+*.proj.Backup.tmp
+
+# JavaScript dependencies and packaged editor assets
+**/node_modules/
+**/__pycache__/
+*.pyc
+/editors/vscode/server/
+/editors/vscode/*.vsix
+
+# Local IDE state; shared .vscode settings and lockfiles stay versioned
+**/.vs/
+*.suo
+*.csproj.user
+*.vcxproj.user
+*.sln.docstates
+
+# Personal notes unrelated to the framework
+/local-notes/

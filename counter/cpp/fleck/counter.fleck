@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window xmlns="urn:sunfleck:v1" Model="MainModel" Title="Sunfleck Counter" Width="360" Height="180">
+  <StackPanel Spacing="8" Padding="16">
+    <TextBlock Id="count" Text="{Binding count, StringFormat='Count: {0}'}"/>
+    <Button Id="increment" Content="{Binding buttonText}" IsEnabled="{Binding canIncrement}" Command="{Binding increment}" CommandMode="Async"/>
+  </StackPanel>
+</Window>

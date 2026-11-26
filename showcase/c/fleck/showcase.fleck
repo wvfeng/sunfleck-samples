@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window xmlns="urn:sunfleck:v1" Title="Sunfleck Showcase" Width="1000" Height="760">
+  <NavigationView Id="pages">
+    <TabItem Text="Theme">
+      <ScrollView>
+        <TextBlock Text="Sunfleck 组件展厅 · 主题和命令"/>
+        <Card>
+          <Label Text="ComboBox / Switch - Appearance"/>
+          <ComboBox Id="theme"><ListItem Text="Fluent 2"/><ListItem Text="Material 3"/><ListItem Text="Radix Themes"/><ListItem Text="Apple Liquid Glass"/><ListItem Text="Sunfleck Lite"/></ComboBox>
+          <Switch Id="dark" Text="Dark appearance"/>
+          <Switch Id="compact" Text="Compact density"/>
+        </Card>
+        <Card>
+          <Label Text="Card / Button - Counter commands"/>
+          <TextBlock Id="count" Text="Count: 0"/>
+          <Button Id="increment" Content="Increment via Command"/>
+          <Button Id="reset" Content="Reset counter"/>
+        </Card>
+      </ScrollView>
+    </TabItem>
+    <TabItem Text="Layout">
+      <ScrollView>
+        <StackPanel Spacing="10" Padding="6">
+          <Panel><TextBlock Text="StackPanel → Panel → TextBlock"/></Panel>
+          <Card>
+            <Label Text="Flex / Badge / Button"/>
+            <Flex><Badge Text="Fixed" Width="100" Weight="0"/><Button Content="Growing Flex item"/></Flex>
+          </Card>
+          <Card>
+            <Label Text="Grid / Card"/>
+            <Grid ColumnDefinitions="130,*"><Card Width="130" Weight="0"><TextBlock Text="Fixed track"/></Card><TextBlock Grid.Column="1" Text="Star track"/></Grid>
+          </Card>
+          <Card>
+            <Label Text="WrapPanel"/>
+            <WrapPanel><Button Content="Wrap A" Width="300"/><Button Content="Wrap B" Width="300"/><Button Content="Wrap C" Width="300"/></WrapPanel>
+          </Card>
+          <Card>
+            <Label Text="DockPanel"/>
+            <DockPanel><Badge Text="Dock Bottom" Dock="Bottom"/><TextBlock Text="Remaining area"/></DockPanel>
+          </Card>
+          <Card>
+            <Label Text="SplitView"/>
+            <SplitView Value="40"><TextBlock Text="Drag the divider"/><TextBlock Text="Right pane"/></SplitView>
+          </Card>
+          <Card>
+            <Label Text="Overlay / ProgressBar"/>
+            <Overlay><ProgressBar Value="65"/><TextBlock Text="Overlay"/></Overlay>
+          </Card>
+        </StackPanel>
+      </ScrollView>
+    </TabItem>
+    <TabItem Text="Inputs">
+      <ScrollView>
+        <Card>
+          <Label Text="ToolBar / InfoBar - Click an action"/>
+          <ToolBar>
+            <Button Id="icon_button" Text="Button"/>
+            <ToggleButton Text="ToggleButton"/>
+            <Hyperlink Id="link" Text="Hyperlink: show message"/>
+          </ToolBar>
+          <InfoBar Id="notice" Text="Try the toolbar or submit a search."/>
+        </Card>
+        <Card>
+          <Label Text="CheckBox / Switch / RadioButton"/>
+          <CheckBox Text="CheckBox"/>
+          <Switch Text="Switch"/>
+          <Flex><RadioButton Text="First" Value="1"/><RadioButton Text="Second"/></Flex>
+        </Card>
+        <Card>
+          <Label Text="SpinBox / Slider / ProgressBar"/>
+          <Label Text="SpinBox - Adjust the number"/>
+          <SpinBox Value="12"/>
+          <Label Text="Slider - Drag to update the ProgressBar"/>
+          <Slider Id="slider" Value="35"/>
+          <Label Text="ProgressBar - Follows the slider"/>
+          <ProgressBar Id="progress" Value="35"/>
+          <Label Text="Separator"/>
+          <Separator/>
+        </Card>
+        <Card>
+          <Label Text="Label / TextBox - Click the label to focus"/>
+          <Label Text="Click this label to focus the editor" Anchor="editor"/>
+          <TextBox Id="editor" Text="Edit this text / 编辑"/>
+        </Card>
+        <Card>
+          <Label Text="TextBox - TwoWay and OneTime bindings"/>
+          <TextBlock Text="TwoWay: edit either field to update both"/>
+          <TextBox Id="bound_editor"/>
+          <TextBox Id="bound_peer"/>
+          <TextBlock Text="OneTime snapshot:"/>
+          <TextBlock Id="snapshot"/>
+        </Card>
+        <Card>
+          <Label Text="PasswordBox / TextArea / SearchBox"/>
+          <Label Text="PasswordBox"/>
+          <PasswordBox Text="Secret"/>
+          <Label Text="TextArea"/>
+          <TextArea Text="First line&#10;第二行"/>
+          <Label Text="SearchBox - Submit to update the InfoBar"/>
+          <SearchBox Id="search"/>
+        </Card>
+        <Card>
+          <Label Text="Image / Icon"/>
+          <Flex><Image Id="sample_image" Width="80" Weight="0"/><Image Id="sample_icon"/></Flex>
+        </Card>
+      </ScrollView>
+    </TabItem>
+    <TabItem Text="Data">
+      <ScrollView>
+        <Card>
+          <Label Text="ComboBox / ListItem"/>
+          <ComboBox><ListItem Text="Alpha"/><ListItem Text="Beta"/><ListItem Text="Gamma"/></ComboBox>
+        </Card>
+        <Card>
+          <Label Text="ListView / ListItem"/>
+          <ListView><ListItem Text="List Alpha"/><ListItem Text="List Beta"/><ListItem Text="List Gamma"/></ListView>
+        </Card>
+        <Card>
+          <Label Text="ItemsControl"/>
+          <ItemsControl Id="items"/>
+        </Card>
+        <Card>
+          <Label Text="TreeView / TreeItem"/>
+          <TreeView><TreeItem Text="level 1, item 1" Value="1"><TreeItem Text="level 2, item 1"/><TreeItem Text="level 2, item 2"/><TreeItem Text="level 2, item 3"/></TreeItem><TreeItem Text="level 1, item 2"><TreeItem Text="level 2, item 1"/></TreeItem><TreeItem Text="level 1, item 3"/></TreeView>
+        </Card>
+        <Card>
+          <Label Text="DataGrid / Badge / TextBox"/>
+          <TextBlock Text="DataGrid: scroll and click a value to edit"/>
+          <DataGrid Id="table">
+            <Grid ColumnDefinitions="90,*"><Badge Text="Row 01" Width="90" Weight="0"/><TextBox Grid.Column="1" Id="cell" Text="Editable value 1"/></Grid>
+            <Grid ColumnDefinitions="90,*"><Badge Text="Row 02" Width="90" Weight="0"/><TextBox Grid.Column="1" Text="Editable value 2"/></Grid>
+            <Grid ColumnDefinitions="90,*"><Badge Text="Row 03" Width="90" Weight="0"/><TextBox Grid.Column="1" Text="Editable value 3"/></Grid>
+            <Grid ColumnDefinitions="90,*"><Badge Text="Row 04" Width="90" Weight="0"/><TextBox Grid.Column="1" Text="Editable value 4"/></Grid>
+            <Grid ColumnDefinitions="90,*"><Badge Text="Row 05" Width="90" Weight="0"/><TextBox Grid.Column="1" Text="Editable value 5"/></Grid>
+            <Grid ColumnDefinitions="90,*"><Badge Text="Row 06" Width="90" Weight="0"/><TextBox Grid.Column="1" Text="Editable value 6"/></Grid>
+            <Grid ColumnDefinitions="90,*"><Badge Text="Row 07" Width="90" Weight="0"/><TextBox Grid.Column="1" Text="Editable value 7"/></Grid>
+            <Grid ColumnDefinitions="90,*"><Badge Text="Row 08" Width="90" Weight="0"/><TextBox Grid.Column="1" Text="Editable value 8"/></Grid>
+            <Grid ColumnDefinitions="90,*"><Badge Text="Row 09" Width="90" Weight="0"/><TextBox Grid.Column="1" Text="Editable value 9"/></Grid>
+            <Grid ColumnDefinitions="90,*"><Badge Text="Row 10" Width="90" Weight="0"/><TextBox Grid.Column="1" Text="Editable value 10"/></Grid>
+            <Grid ColumnDefinitions="90,*"><Badge Text="Row 11" Width="90" Weight="0"/><TextBox Grid.Column="1" Text="Editable value 11"/></Grid>
+            <Grid ColumnDefinitions="90,*"><Badge Text="Row 12" Width="90" Weight="0"/><TextBox Grid.Column="1" Text="Editable value 12"/></Grid>
+          </DataGrid>
+        </Card>
+      </ScrollView>
+    </TabItem>
+    <TabItem Text="Overlays">
+      <ScrollView>
+        <Card>
+          <Label Text="MenuBar / ComboBox - Open Actions"/>
+          <MenuBar><ComboBox Id="menu" Text="Actions"><ListItem Text="Show dialog"/><ListItem Text="Show popup"/></ComboBox></MenuBar>
+        </Card>
+        <Card>
+          <Label Text="Popup - Click the button to toggle"/>
+          <Button Id="show_popup" Content="Toggle popup"/>
+          <Popup Id="popup" Anchor="show_popup"><InfoBar Text="Popup content"/></Popup>
+        </Card>
+        <Card>
+          <Label Text="Tooltip / ContextMenu - Hover or right-click"/>
+          <Button Id="target" Content="Hover or right-click"/>
+          <Tooltip Anchor="target"><TextBlock Text="Tooltip from an anchor reference"/></Tooltip>
+          <ContextMenu Id="context" Anchor="target"><Button Id="close_context" Content="Close context menu"/></ContextMenu>
+        </Card>
+        <Card>
+          <Label Text="Dialog - Open and dismiss"/>
+          <Button Id="show_dialog" Content="Open modal dialog"/>
+          <Dialog Id="dialog"><TextBlock Text="Modal dialog"/><Button Id="close_dialog" Content="Close"/></Dialog>
+        </Card>
+        <Card>
+          <Label Text="Spinner"/>
+          <Spinner/>
+        </Card>
+        <Card>
+          <Label Text="TabView / TabItem"/>
+          <TabView Id="tabs"><TabItem Text="Overview"><TextBlock Text="First tab page"/></TabItem><TabItem Text="Details"><TextBlock Text="Second tab page"/></TabItem></TabView>
+        </Card>
+      </ScrollView>
+    </TabItem>
+    <TabItem Text="Dock">
+      <ToolBar>
+        <Button Id="dock_reset" Content="Reset layout"/>
+        <Button Id="dock_float" Content="Float editor"/>
+        <Button Id="dock_hide" Content="Auto hide"/>
+        <Button Id="dock_show" Content="Show tools"/>
+        <Button Id="dock_save" Content="Save layout"/>
+        <Button Id="dock_restore" Content="Restore layout"/>
+      </ToolBar>
+      <DockHost Id="dock">
+        <DockSplit Orientation="Horizontal" Ratio="50">
+          <DockSplit Orientation="Vertical" Ratio="50">
+            <DockGroup><DockTool Id="dock_explorer" Title="Explorer"><TextArea Text="Project files and folders"/></DockTool></DockGroup>
+            <DockGroup><DockTool Id="dock_output" Title="Output"><TextArea Text="Build completed successfully."/></DockTool></DockGroup>
+          </DockSplit>
+          <DockGroup>
+            <DockDocument Id="dock_editor_a" Title="Editor A"><TextArea Text="Edit this document, then float or move its tab."/></DockDocument>
+            <DockDocument Id="dock_editor_b" Title="Editor B"><TextArea Text="A second document with independent content."/></DockDocument>
+          </DockGroup>
+        </DockSplit>
+      </DockHost>
+    </TabItem>
+  </NavigationView>
+</Window>

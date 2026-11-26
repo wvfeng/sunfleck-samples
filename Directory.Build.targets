@@ -1,0 +1,8 @@
+<Project>
+  <Import Project="$(SunfleckSdkRoot)/share/sunfleck/Sunfleck.props"
+          Condition="'$(MSBuildProjectExtension)' == '.csproj' and '$(SunfleckSdkRoot)' != '' and Exists('$(SunfleckSdkRoot)/share/sunfleck/Sunfleck.props')" />
+  <Target Name="CheckSunfleckSdk" BeforeTargets="PrepareForBuild" Condition="'$(MSBuildProjectExtension)' == '.csproj'">
+    <Error Condition="'$(SunfleckSdkRoot)' == '' or !Exists('$(SunfleckSdkRoot)/share/sunfleck/Sunfleck.props')"
+           Text="Set SunfleckSdkRoot to the installed desktop SDK." />
+  </Target>
+</Project>

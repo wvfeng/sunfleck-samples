@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window xmlns="urn:sunfleck:v1" Model="CounterModel" Title="Sunfleck C# Fleck Counter" Width="360" Height="180">
+  <StackPanel Spacing="8" Padding="16">
+    <TextBlock Id="count" Text="{Binding Count, StringFormat='Count: {0}'}"/>
+    <Button Id="increment" Content="{Binding ButtonText}" IsEnabled="{Binding CanIncrement}" Command="{Binding IncrementCount}" CommandMode="Async"/>
+    <TextBlock Id="caption" Text="{Binding Caption}"/>
+  </StackPanel>
+</Window>
